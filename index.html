@@ -1,202 +1,253 @@
 index.html
-<!DOCTYPE html><html lang="pt-BR">
+<!DOCTYPE html>
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>XP Games Store</title>
   <style>
-    body {
+    /* ===========================
+       RESET E ESTILOS GERAIS
+    ============================ */
+    * {
       margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background-color: #0f172a;
-      color: #e5e7eb;
+      padding: 0;
+      box-sizing: border-box;
     }
-    header {
-      background: linear-gradient(90deg, #1e3a8a, #2563eb);
-      padding: 20px;
-      text-align: center;
-    }
-    header h1 {
-      <header>
-  <img
-    src="https://images.unsplash.com/photo-1612287230202-1ff1d85d1bdf?q=80&w=300"
-    alt="XP Games Store"
-    style="
-      width:120px;
-      border-radius:50%;
-      margin-bottom:10px;
-      box-shadow:0 0 15px rgba(56,189,248,0.6);
-    "
-  >
 
-  <h1>XP Games Store</h1>
-  <p>Marabá – PA | Entrega grátis para toda a região</p>
-</header>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #121212;
+      color: #fff;
+      overflow-x: hidden;
     }
+
+    a { text-decoration: none; color: inherit; }
+
+    /* ===========================
+       HEADER
+    ============================ */
+    header {
+      background: linear-gradient(90deg, #ff6600, #ff9933);
+      padding: 30px 20px;
+      text-align: center;
+      position: relative;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 6px #000;
+    }
+
     header p {
-      margin: 8px 0 0;
-      font-size: 1rem;
+      font-size: 1.2rem;
+      color: #fff;
     }
-    .container {
-      padding: 20px;
-      max-width: 1100px;
-      margin: auto;
-    }
-    .info {
-      background-color: #020617;
-      padding: 15px;
-      border-radius: 10px;
-      margin-bottom: 25px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.4);
-    }
-    .info strong {
-      color: #38bdf8;
-    }
-    .products {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+
+    /* ===========================
+       SLIDE DE PRODUTOS
+    ============================ */
+    .slider {
+      display: flex;
+      overflow-x: auto;
       gap: 20px;
+      padding: 20px;
+      scroll-behavior: smooth;
     }
+
+    .slider::-webkit-scrollbar { display: none; } /* esconde a barra de rolagem */
+
     .product {
-      background-color: #020617;
-      border-radius: 12px;
+      min-width: 250px;
+      background-color: #1e1e1e;
+      border-radius: 15px;
       padding: 15px;
       text-align: center;
-      box-shadow: 0 0 12px rgba(0,0,0,0.5);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.6);
+      transition: transform 0.3s, box-shadow 0.3s;
     }
+
+    .product:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(255,102,0,0.7);
+    }
+
     .product img {
-      max-width: 100%;
-      border-radius: 8px;
+      width: 100%;
+      border-radius: 10px;
+      transition: transform 0.3s;
     }
+
+    .product img:hover {
+      transform: scale(1.05);
+    }
+
     .product h3 {
       margin: 10px 0 5px;
+      font-size: 1.2rem;
+      color: #ff9933;
     }
-    .price {
-      color: #22c55e;
-      font-size: 1.1rem;
+
+    .product .price {
+      font-weight: bold;
+      color: #ff6600;
       margin-bottom: 10px;
     }
+
+    .product p {
+      font-size: 0.9rem;
+      margin-bottom: 10px;
+    }
+
     .buy-btn {
       display: inline-block;
-      padding: 10px 16px;
-      background-color: #22c55e;
-      color: #020617;
-      text-decoration: none;
-      border-radius: 8px;
+      padding: 10px 15px;
+      background-color: #ff6600;
+      color: #fff;
       font-weight: bold;
+      border-radius: 5px;
+      transition: background-color 0.3s;
     }
+
     .buy-btn:hover {
-      background-color: #16a34a;
+      background-color: #e05500;
     }
-    footer {
-      margin-top: 40px;
-      background-color: #020617;
+
+    /* ===========================
+       SEÇÃO DE INFORMAÇÕES
+    ============================ */
+    .info {
       padding: 20px;
       text-align: center;
+      background-color: #1a1a1a;
+      margin: 20px;
+      border-radius: 10px;
+    }
+
+    .info p {
+      margin: 10px 0;
+    }
+
+    .info strong {
+      color: #ff6600;
+    }
+
+    /* ===========================
+       RODAPÉ
+    ============================ */
+    footer {
+      background-color: #1f1f1f;
+      text-align: center;
+      padding: 20px;
       font-size: 0.9rem;
     }
-    footer a {
-      color: #38bdf8;
-      text-decoration: none;
-      font-weight: bold;
+
+    footer a { color: #ff6600; font-weight: bold; }
+
+    /* ===========================
+       RESPONSIVO
+    ============================ */
+    @media (max-width: 768px) {
+      .slider {
+        padding: 10px;
+      }
+
+      header h1 {
+        font-size: 2rem;
+      }
     }
+
   </style>
 </head>
-<body>  <header>
+<body>
+
+  <!-- ===========================
+       HEADER COM NOME DA LOJA
+  ============================ -->
+  <header>
     <h1>XP Games Store</h1>
-    <p>Marabá – PA | Entrega grátis para toda a região</p>
-  </header>  <div class="container">
-    <div class="info">
-      <p><strong>🎮 Loja Gamer XP Games Store</strong></p>
-      <p>Trabalhamos com jogos, consoles, controles, acessórios e produtos gamer em geral.</p>
-      <p>📍 Localizada em <strong>Marabá - PA</strong></p>
-      <p>🚚 <strong>Entrega grátis</strong> (consulte condições)</p>
-      <p>📲 Atendimento direto pelo WhatsApp</p>
-    </div><h2>🛒 Produtos à venda</h2>
+    <p>Loja gamer online – Atendemos via WhatsApp</p>
+  </header>
 
-<div class="products">
-  <!-- PRODUTO 1 -->
-  <div class="product">
+  <!-- ===========================
+       INFORMAÇÕES DA LOJA
+  ============================ -->
+  <div class="info">
+    <p><strong>🎮 Produtos Gamer</strong></p>
+    <p>Consoles, jogos, acessórios e periféricos de alta qualidade.</p>
+    <p>📍 Local: Marabá - PA | 🚚 Entrega grátis (consulte condições)</p>
+    <p>📲 Atendimento rápido via WhatsApp</p>
+  </div>
+
+  <!-- ===========================
+       CARROSSEL DE PRODUTOS
+  ============================ -->
+  <div class="slider">
+
     <!-- PRODUTO 1 -->
-<div class="product">
-  <div class="products">
-<div class="products">
+    <div class="product">
+      <img src="https://i.imgur.com/0W1j1Ix.jpg" alt="Fone KZ EDG Pro" />
+      <h3>Fone KZ EDG Pro</h3>
+      <p class="price">R$ 59,99</p>
+      <p>Fone intra-auricular com som potente e confortável para jogos e música.</p>
+      <a class="buy-btn" href="https://wa.me/5594991169104?text=Quero%20comprar%20o%20Fone%20KZ%20EDG%20Pro" target="_blank">Comprar pelo WhatsApp</a>
+    </div>
 
-  <!-- PRODUTO 1 -->
-  <div class="product">
-    <img src="https://images.unsplash.com/photo-1585386959984-a4155228c7c6?q=80&w=600" alt="Fone KZ EDX Pro">
-    <h3>Fone KZ EDX Pro</h3>
-    <p>Fone in-ear com som potente, excelente definição de graves e ideal para jogos e música.</p>
-    <p class="price">R$ 59,99</p>
-    <a class="buy-btn" href="https://wa.me/5594991169104?text=Olá,%20tenho%20interesse%20no%20Fone%20KZ%20EDX%20Pro" target="_blank">
-      Comprar no WhatsApp
-    </a>
-  </div>
+    <!-- PRODUTO 2 -->
+    <div class="product">
+      <img src="https://i.imgur.com/8C4B8po.jpg" alt="Filtro de Linha iClamper Transparente" />
+      <h3>Filtro de Linha iClamper Transparente</h3>
+      <p class="price">R$ 109,99</p>
+      <p>Proteção contra sobrecarga para seus aparelhos com design transparente moderno.</p>
+      <a class="buy-btn" href="https://wa.me/5594991169104?text=Quero%20comprar%20o%20Filtro%20de%20Linha%20iClamper%20Transparente" target="_blank">Comprar pelo WhatsApp</a>
+    </div>
 
-  <!-- PRODUTO 2 -->
-  <div class="product">
-    <img src="https://images.unsplash.com/photo-1581092334435-1b27c9e86c4d?q=80&w=600" alt="Filtro de Linha iClamper">
-    <h3>Filtro de Linha iClamper Transparente</h3>
-    <p>Protege seus equipamentos contra surtos elétricos e picos de energia.</p>
-    <p class="price">R$ 109,99</p>
-    <a class="buy-btn" href="https://wa.me/5594991169104?text=Olá,%20tenho%20interesse%20no%20Filtro%20de%20Linha%20iClamper" target="_blank">
-      Comprar no WhatsApp
-    </a>
-  </div>
+    <!-- PRODUTO 3 -->
+    <div class="product">
+      <img src="https://i.imgur.com/Jxq0nZd.jpg" alt="Teclado Gamer Fortrek Fearless 80 TKL" />
+      <h3>Teclado Gamer Fortrek Fearless 80 TKL Preto</h3>
+      <p class="price">R$ 119,99</p>
+      <p>Teclado mecânico 70% compacto com ótimo desempenho para jogos e digitação.</p>
+      <a class="buy-btn" href="https://wa.me/5594991169104?text=Quero%20comprar%20o%20Teclado%20Fortrek%20Fearless%2080%20TKL" target="_blank">Comprar pelo WhatsApp</a>
+    </div>
 
-  <!-- PRODUTO 3 -->
-  <div class="product">
-    <img src="https://images.unsplash.com/photo-1618384887929-16ec33fab9ef?q=80&w=600" alt="Teclado Gamer Fortrek Fearless 80">
-    <h3>Teclado Gamer Fortrek Fearless 80 TKL</h3>
-    <p>Teclado compacto estilo gamer, ideal para setups modernos e jogos competitivos.</p>
-    <p class="price">R$ 119,99</p>
-    <a class="buy-btn" href="https://wa.me/5594991169104?text=Olá,%20tenho%20interesse%20no%20Teclado%20Fortrek%20Fearless%2080" target="_blank">
-      Comprar no WhatsApp
-    </a>
-  </div>
+    <!-- PRODUTO 4 -->
+    <div class="product">
+      <img src="https://i.imgur.com/1GfL9W3.jpg" alt="Teclado Gamer RGB LED Rainbow MTS" />
+      <h3>Teclado Gamer RGB LED Rainbow MTS</h3>
+      <p class="price">R$ 65,99</p>
+      <p>Teclado com iluminação RGB, anti-ghosting e multimídia perfeito para gamers.</p>
+      <a class="buy-btn" href="https://wa.me/5594991169104?text=Quero%20comprar%20o%20Teclado%20Gamer%20RGB%20LED%20Rainbow%20MTS" target="_blank">Comprar pelo WhatsApp</a>
+    </div>
 
-  <!-- PRODUTO 4 -->
-  <div class="product">
-    <img src="https://images.unsplash.com/photo-1587829741301-dc798b83add3?q=80&w=600" alt="Teclado Gamer RGB Rainbow">
-    <h3>Teclado Gamer RGB Rainbow</h3>
-    <p>Teclado com iluminação RGB, padrão ABNT-2 e função anti-ghosting.</p>
-    <p class="price">R$ 65,99</p>
-    <a class="buy-btn" href="https://wa.me/5594991169104?text=Olá,%20tenho%20interesse%20no%20Teclado%20Gamer%20RGB%20Rainbow" target="_blank">
-      Comprar no WhatsApp
-    </a>
-  </div>
+    <!-- PRODUTO 5 -->
+    <div class="product">
+      <img src="https://i.imgur.com/8Pn3pQF.jpg" alt="ZAROBO Mouse Gamer USB LED RGB MS-62" />
+      <h3>ZAROBO Mouse Gamer USB LED RGB 1200DPI</h3>
+      <p class="price">R$ 34,99</p>
+      <p>Mouse gamer com iluminação LED RGB e resolução de 1200 DPI.</p>
+      <a class="buy-btn" href="https://wa.me/5594991169104?text=Quero%20comprar%20o%20ZAROBO%20Mouse%20Gamer%20MS-62" target="_blank">Comprar pelo WhatsApp</a>
+    </div>
 
-  <!-- PRODUTO 5 -->
-  <div class="product">
-    <img src="https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?q=80&w=600" alt="Mouse Gamer ZAROBO RGB">
-    <h3>Mouse Gamer ZAROBO RGB MS-62</h3>
-    <p>Mouse gamer com LED RGB, 1200 DPI e ótimo custo-benefício.</p>
-    <p class="price">R$ 34,99</p>
-    <a class="buy-btn" href="https://wa.me/5594991169104?text=Olá,%20tenho%20interesse%20no%20Mouse%20Gamer%20ZAROBO%20RGB" target="_blank">
-      Comprar no WhatsApp
-    </a>
-  </div>
-
-  <!-- PRODUTO 6 -->
-  <div class="product">
-    <img src="https://images.unsplash.com/photo-1606312619070-d48b4c652a52?q=80&w=600" alt="Controle USB para PC">
-    <h3>Controle USB para PC</h3>
-    <p>Controle com fio USB 2.0, compatível com PC e notebook.</p>
-    <p class="price">R$ 34,99</p>
-    <a class="buy-btn" href="https://wa.me/5594991169104?text=Olá,%20tenho%20interesse%20no%20Controle%20USB%20para%20PC" target="_blank">
-      Comprar no WhatsApp
-    </a>
-  </div>
-
-</div>
+    <!-- PRODUTO 6 -->
+    <div class="product">
+      <img src="https://i.imgur.com/fkq9ClM.jpg" alt="Joypad USB Gamepad PC" />
+      <h3>Joypad com fio USB 2.0</h3>
+      <p class="price">R$ 34,99</p>
+      <p>Controle gamepad USB compatível com PC e notebook para jogos confortáveis.</p>
+      <a class="buy-btn" href="https://wa.me/5594991169104?text=Quero%20comprar%20o%20Joypad%20com%20fio%20USB" target="_blank">Comprar pelo WhatsApp</a>
+    </div>
 
   </div>
-</div>
-  </div>
 
-  <!-- É SÓ COPIAR UM BLOCO DESSE PRA ADICIONAR MAIS PRODUTOS -->
-</div>
+  <!-- ===========================
+       RODAPÉ
+  ============================ -->
+  <footer>
+    <p>© 2026 XP Games Store - Todos os direitos reservados</p>
+    <p>📞 WhatsApp: <a href="https://wa.me/5594991169104" target="_blank">Clique aqui para falar</a></p>
+  </footer>
 
-  </div>  <footer>
-    <p>© 2026 - XP Games Store</p>
-    <p>📞 WhatsApp: <a href="https://wa.me/559
+</body>
+</html>
