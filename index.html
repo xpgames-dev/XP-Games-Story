@@ -7,27 +7,51 @@ index.html
 <title>XP Games Store</title>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 <style>
-  body {margin:0; font-family:'Roboto', sans-serif; background:#111; color:#fff;}
+  body {margin:0; font-family:'Roboto', sans-serif; background:#0f172a; color:#fff;}
   a {text-decoration:none; color:inherit;}
-  header {background:#ff6600; padding:20px; text-align:center; position:sticky; top:0; z-index:100;}
-  header h1 {font-size:2rem; color:#fff;}
-
-  /* Slider */
-  .slider {display:flex; overflow-x:auto; scroll-behavior:smooth; padding:20px; gap:20px;}
-  .slider::-webkit-scrollbar {display:none;}
-
-  .product {min-width:260px; background:#222; border-radius:12px; padding:15px; text-align:center; transition:0.3s;}
-  .product:hover {transform:translateY(-10px); box-shadow:0 10px 20px rgba(0,0,0,0.5);}
-  .product img {width:100%; border-radius:8px; height:180px; object-fit:cover;}
-  .product h3 {margin:10px 0; color:#ff6600;}
-  .product p.price {font-weight:bold; margin:5px 0;}
-  .product p {font-size:0.9rem; margin:5px 0 10px;}
-  .buy-btn {display:inline-block; background:#ff6600; color:#fff; padding:10px 15px; border-radius:8px; transition:0.3s;}
-  .buy-btn:hover {background:#ff8800;}
+  
+  header {
+    background: linear-gradient(90deg, #1e3a8a, #2563eb);
+    padding: 20px;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.5);
+  }
+  header h1 {font-size:2.2rem; margin:0;}
+  header p {margin:5px 0 0; font-size:1rem;}
 
   .intro {text-align:center; padding:20px;}
+  .intro p {font-size:1.1rem; color:#38bdf8;}
+
+  /* Slider */
+  .slider-container {position:relative; padding:20px; max-width:1200px; margin:auto;}
+  .slider {display:flex; overflow-x:auto; scroll-behavior:smooth; gap:20px; padding-bottom:10px;}
+  .slider::-webkit-scrollbar {display:none;}
+  .arrow {position:absolute; top:50%; transform:translateY(-50%); font-size:2rem; color:#ff6600; background:#111; border-radius:50%; width:40px; height:40px; display:flex; align-items:center; justify-content:center; cursor:pointer; z-index:10; user-select:none;}
+  .arrow-left {left:-20px;}
+  .arrow-right {right:-20px;}
+
+  .product {
+    min-width:260px; background:#111; border-radius:12px; padding:15px; text-align:center; transition:0.3s;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+  }
+  .product:hover {transform:translateY(-10px); box-shadow:0 15px 25px rgba(0,0,0,0.5);}
+  .product img {width:100%; border-radius:8px; height:180px; object-fit:cover; transition:0.3s;}
+  .product img:hover {transform:scale(1.05);}
+  .product h3 {margin:10px 0; color:#ff6600;}
+  .product p.price {font-weight:bold; margin:5px 0; color:#22c55e;}
+  .product p.desc {font-size:0.9rem; margin:5px 0 10px; color:#cbd5e1;}
+  .buy-btn {display:inline-block; background:#ff6600; color:#fff; padding:10px 15px; border-radius:8px; font-weight:bold; transition:0.3s;}
+  .buy-btn:hover {background:#ff8800;}
+
   footer {background:#111; color:#ccc; text-align:center; padding:15px; font-size:0.9rem;}
   footer a {color:#ff6600;}
+
+  /* Animations */
+  @keyframes fadeIn {from{opacity:0; transform:translateY(20px);} to{opacity:1; transform:translateY(0);}}
+  .product {animation:fadeIn 0.5s ease forwards;}
 </style>
 </head>
 <body>
@@ -41,68 +65,78 @@ index.html
   <p>🎮 Sua loja de produtos gamer: consoles, jogos e acessórios!</p>
 </div>
 
-<div class="slider">
+<div class="slider-container">
+  <div class="arrow arrow-left" onclick="scrollSlider(-300)">&#10094;</div>
+  <div class="arrow arrow-right" onclick="scrollSlider(300)">&#10095;</div>
+  <div class="slider">
 
-  <!-- Produto 1 -->
-  <div class="product">
-    <img src="https://i.ibb.co/4fGn9Bn/fone-kz-edg-pro.png" alt="Fone KZ EDG Pro">
-    <h3>Fone KZ EDG Pro</h3>
-    <p class="price">R$ 59,99</p>
-    <p>Fone intra-auricular com som potente e confortável para jogos e música.</p>
-    <a class="buy-btn" href="https://wa.me/5594991169104?text=Quero%20comprar%20o%20Fone%20KZ%20EDG%20Pro" target="_blank">Comprar pelo WhatsApp</a>
+    <!-- PRODUTO 1 -->
+    <div class="product">
+      <img src="https://i.ibb.co/4fGn9Bn/fone-kz-edg-pro.png" alt="Fone KZ EDG Pro">
+      <h3>Fone KZ EDG Pro</h3>
+      <p class="price">R$ 59,99</p>
+      <p class="desc">Fone intra-auricular com som potente e confortável para jogos e música.</p>
+      <a class="buy-btn" href="https://wa.me/5594991169104?text=Quero%20comprar%20o%20Fone%20KZ%20EDG%20Pro" target="_blank">Comprar pelo WhatsApp</a>
+    </div>
+
+    <!-- PRODUTO 2 -->
+    <div class="product">
+      <img src="https://i.ibb.co/0t7rYpV/filtro-iclamper.png" alt="Filtro de Linha iClamper Transparente">
+      <h3>Filtro de Linha iClamper Transparente</h3>
+      <p class="price">R$ 109,99</p>
+      <p class="desc">Proteção contra sobrecarga para seus aparelhos com design transparente moderno.</p>
+      <a class="buy-btn" href="https://wa.me/5594991169104?text=Quero%20comprar%20o%20Filtro%20de%20Linha%20iClamper%20Transparente" target="_blank">Comprar pelo WhatsApp</a>
+    </div>
+
+    <!-- PRODUTO 3 -->
+    <div class="product">
+      <img src="https://i.ibb.co/tcM9GKr/teclado-fortrek.png" alt="Teclado Gamer Fortrek Fearless 80 TKL">
+      <h3>Teclado Gamer Fortrek Fearless 80 TKL Preto</h3>
+      <p class="price">R$ 119,99</p>
+      <p class="desc">Teclado mecânico 70% compacto com ótimo desempenho para jogos e digitação.</p>
+      <a class="buy-btn" href="https://wa.me/5594991169104?text=Quero%20comprar%20o%20Teclado%20Fortrek%20Fearless%2080%20TKL" target="_blank">Comprar pelo WhatsApp</a>
+    </div>
+
+    <!-- PRODUTO 4 -->
+    <div class="product">
+      <img src="https://i.ibb.co/YyGQ0V9/teclado-rgb.png" alt="Teclado Gamer RGB LED Rainbow MTS">
+      <h3>Teclado Gamer RGB LED Rainbow MTS</h3>
+      <p class="price">R$ 65,99</p>
+      <p class="desc">Teclado com iluminação RGB, anti-ghosting e multimídia perfeito para gamers.</p>
+      <a class="buy-btn" href="https://wa.me/5594991169104?text=Quero%20comprar%20o%20Teclado%20Gamer%20RGB%20LED%20Rainbow%20MTS" target="_blank">Comprar pelo WhatsApp</a>
+    </div>
+
+    <!-- PRODUTO 5 -->
+    <div class="product">
+      <img src="https://i.ibb.co/3Fh8Rrb/mouse-rgb.png" alt="ZAROBO Mouse Gamer USB LED RGB MS-62">
+      <h3>ZAROBO Mouse Gamer USB LED RGB 1200DPI</h3>
+      <p class="price">R$ 34,99</p>
+      <p class="desc">Mouse gamer com iluminação LED RGB e resolução de 1200 DPI.</p>
+      <a class="buy-btn" href="https://wa.me/5594991169104?text=Quero%20comprar%20o%20ZAROBO%20Mouse%20Gamer%20MS-62" target="_blank">Comprar pelo WhatsApp</a>
+    </div>
+
+    <!-- PRODUTO 6 -->
+    <div class="product">
+      <img src="https://i.ibb.co/k6PQZpT/joypad-usb.png" alt="Joypad USB Gamepad PC">
+      <h3>Joypad com fio USB 2.0</h3>
+      <p class="price">R$ 34,99</p>
+      <p class="desc">Controle gamepad USB compatível com PC e notebook para jogos confortáveis.</p>
+      <a class="buy-btn" href="https://wa.me/5594991169104?text=Quero%20comprar%20o%20Joypad%20com%20fio%20USB" target="_blank">Comprar pelo WhatsApp</a>
+    </div>
+
   </div>
-
-  <!-- Produto 2 -->
-  <div class="product">
-    <img src="https://i.ibb.co/0t7rYpV/filtro-iclamper.png" alt="Filtro de Linha iClamper Transparente">
-    <h3>Filtro de Linha iClamper Transparente</h3>
-    <p class="price">R$ 109,99</p>
-    <p>Proteção contra sobrecarga para seus aparelhos com design transparente moderno.</p>
-    <a class="buy-btn" href="https://wa.me/5594991169104?text=Quero%20comprar%20o%20Filtro%20de%20Linha%20iClamper%20Transparente" target="_blank">Comprar pelo WhatsApp</a>
-  </div>
-
-  <!-- Produto 3 -->
-  <div class="product">
-    <img src="https://i.ibb.co/tcM9GKr/teclado-fortrek.png" alt="Teclado Gamer Fortrek Fearless 80 TKL">
-    <h3>Teclado Gamer Fortrek Fearless 80 TKL Preto</h3>
-    <p class="price">R$ 119,99</p>
-    <p>Teclado mecânico 70% compacto com ótimo desempenho para jogos e digitação.</p>
-    <a class="buy-btn" href="https://wa.me/5594991169104?text=Quero%20comprar%20o%20Teclado%20Fortrek%20Fearless%2080%20TKL" target="_blank">Comprar pelo WhatsApp</a>
-  </div>
-
-  <!-- Produto 4 -->
-  <div class="product">
-    <img src="https://i.ibb.co/YyGQ0V9/teclado-rgb.png" alt="Teclado Gamer RGB LED Rainbow MTS">
-    <h3>Teclado Gamer RGB LED Rainbow MTS</h3>
-    <p class="price">R$ 65,99</p>
-    <p>Teclado com iluminação RGB, anti-ghosting e multimídia perfeito para gamers.</p>
-    <a class="buy-btn" href="https://wa.me/5594991169104?text=Quero%20comprar%20o%20Teclado%20Gamer%20RGB%20LED%20Rainbow%20MTS" target="_blank">Comprar pelo WhatsApp</a>
-  </div>
-
-  <!-- Produto 5 -->
-  <div class="product">
-    <img src="https://i.ibb.co/3Fh8Rrb/mouse-rgb.png" alt="ZAROBO Mouse Gamer USB LED RGB MS-62">
-    <h3>ZAROBO Mouse Gamer USB LED RGB 1200DPI</h3>
-    <p class="price">R$ 34,99</p>
-    <p>Mouse gamer com iluminação LED RGB e resolução de 1200 DPI.</p>
-    <a class="buy-btn" href="https://wa.me/5594991169104?text=Quero%20comprar%20o%20ZAROBO%20Mouse%20Gamer%20MS-62" target="_blank">Comprar pelo WhatsApp</a>
-  </div>
-
-  <!-- Produto 6 -->
-  <div class="product">
-    <img src="https://i.ibb.co/k6PQZpT/joypad-usb.png" alt="Joypad USB Gamepad PC">
-    <h3>Joypad com fio USB 2.0</h3>
-    <p class="price">R$ 34,99</p>
-    <p>Controle gamepad USB compatível com PC e notebook para jogos confortáveis.</p>
-    <a class="buy-btn" href="https://wa.me/5594991169104?text=Quero%20comprar%20o%20Joypad%20com%20fio%20USB" target="_blank">Comprar pelo WhatsApp</a>
-  </div>
-
 </div>
 
 <footer>
   © 2026 XP Games Store - Todos os direitos reservados<br>
   WhatsApp: <a href="https://wa.me/5594991169104" target="_blank">Clique aqui para falar</a>
 </footer>
+
+<script>
+function scrollSlider(value) {
+  document.querySelector('.slider').scrollBy({left:value, behavior:'smooth'});
+}
+</script>
 
 </body>
 </html>
