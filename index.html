@@ -4,47 +4,63 @@ index.html
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>XP Games Store</title>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<title>XP Games Store - Consoles, Jogos e Acessórios</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
 <style>
+  /* Base */
   body {
     margin: 0;
     font-family: 'Roboto', sans-serif;
-    background-color: #121212;
+    background-color: #0d0d0d; /* Fundo mais escuro */
     color: #fff;
   }
+  
+  /* Cabeçalho */
   header {
-    background: linear-gradient(90deg, #ff6600, #ff9900);
-    padding: 25px;
+    background: linear-gradient(90deg, #ff4500, #ff8c00); /* Laranja mais vibrante */
+    padding: 30px;
     text-align: center;
     color: #fff;
-    font-size: 2em;
-    font-weight: bold;
+    font-size: 2.5em;
+    font-weight: 900; /* Mais pesado */
+    position: relative;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  }
+  header img {
+    max-height: 60px; /* Logo maior */
+    vertical-align: middle;
+    margin-right: 15px;
   }
   header span {
+    font-size: 0.5em;
     display: block;
-    font-size: 0.7em;
     margin-top: 5px;
-    color: #fffacd;
+    color: #ffd700; /* Dourado */
+    font-weight: 400;
   }
 
   /* Slider */
   .slider-container {
     position: relative;
+    width: 100%;
+    max-width: 1400px;
+    margin: 30px auto;
     overflow: hidden;
-    margin-bottom: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
   }
   .slider {
     display: flex;
-    transition: transform 0.7s ease-in-out;
+    transition: transform 0.5s ease-in-out;
   }
   .slide {
     min-width: 100%;
+    box-sizing: border-box;
     position: relative;
   }
   .slide img {
     width: 100%;
-    height: 350px;
+    height: 400px; /* Altura um pouco maior */
     object-fit: cover;
   }
   .slide-text {
@@ -52,208 +68,185 @@ index.html
     bottom: 30px;
     left: 30px;
     color: #fff;
-    font-size: 2em;
-    font-weight: bold;
-    text-shadow: 2px 2px 6px #000;
+    font-size: 2.5em;
+    font-weight: 900;
+    text-shadow: 2px 2px 8px #000;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 5px 15px;
+    border-radius: 5px;
   }
+
+  /* Setas slider */
   .prev, .next {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background-color: rgba(255,102,0,0.8);
+    background-color: rgba(255, 69, 0, 0.7); /* Laranja */
     border: none;
-    padding: 12px;
+    padding: 15px;
     cursor: pointer;
-    font-size: 1.5em;
+    font-size: 1.8em;
     border-radius: 50%;
     color: #fff;
-    z-index: 2;
+    z-index: 10;
+    transition: background-color 0.3s;
+  }
+  .prev:hover, .next:hover {
+    background-color: #ff4500;
   }
   .prev { left: 15px; }
   .next { right: 15px; }
 
-  /* Products */
+  /* Produtos */
+  .products-section {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  .products-section h2 {
+    text-align: center;
+    font-size: 2em;
+    color: #ff8c00;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #ff4500;
+    padding-bottom: 10px;
+  }
   .products {
     display: flex;
     overflow-x: auto;
     scroll-behavior: smooth;
-    padding: 20px;
-    gap: 20px;
+    padding: 10px 0;
+    gap: 25px; /* Mais espaçamento */
   }
   .product {
-    flex: 0 0 280px;
+    flex: 0 0 300px; /* Largura um pouco maior */
     background-color: #1e1e1e;
-    border-radius: 12px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    border: 1px solid #333;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.6);
     text-align: center;
-    transition: transform 0.3s, box-shadow 0.3s;
+    transition: transform 0.4s, box-shadow 0.4s;
     cursor: pointer;
+    position: relative;
+    overflow: hidden;
   }
   .product:hover {
-    transform: translateY(-10px) scale(1.05);
-    box-shadow: 0 12px 25px rgba(0,0,0,0.7);
+    transform: translateY(-15px) scale(1.05);
+    box-shadow: 0 15px 30px rgba(255, 69, 0, 0.3);
   }
   .product img {
     width: 100%;
-    height: 200px;
-    object-fit: contain;
-    border-radius: 10px;
-    margin-top: 15px;
-    transition: transform 0.3s;
+    height: 220px;
+    object-fit: cover;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    margin-top: 0;
+    transition: transform 0.5s;
   }
   .product img:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
   }
   .product h3 {
-    font-size: 1.1em;
-    margin: 10px 0 5px 0;
-    color: #ff6600;
+    font-size: 1.2em;
+    margin: 15px 10px 5px 10px;
+    color: #ffd700; /* Dourado */
+    min-height: 40px;
   }
   .product .price {
+    font-size: 1.5em;
     font-weight: bold;
     margin-bottom: 10px;
-    color: #00ffcc;
+    color: #00ff99; /* Verde neon */
   }
   .product p {
-    font-size: 0.9em;
-    margin-bottom: 10px;
-    color: #ccc;
-    padding: 0 10px;
+    font-size: 0.95em;
+    margin-bottom: 15px;
+    color: #bbb;
+    padding: 0 15px;
+    min-height: 60px;
   }
   .buy-btn {
-    background-color: #ff6600;
+    background-color: #ff4500;
     color: #fff;
-    padding: 10px 15px;
+    padding: 12px 20px;
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: 8px;
     display: inline-block;
-    margin-bottom: 15px;
-    transition: background-color 0.3s;
+    margin-bottom: 20px;
+    transition: background-color 0.3s, transform 0.2s;
+    font-weight: bold;
   }
   .buy-btn:hover {
-    background-color: #e55a00;
+    background-color: #e53e00;
+    transform: scale(1.05);
   }
 
+  /* Rodapé */
   footer {
-    background-color: #1e1e1e;
+    background-color: #1a1a1a;
     text-align: center;
-    padding: 20px;
-    margin-top: 40px;
-    font-size: 0.9em;
-    color: #ccc;
+    padding: 25px;
+    margin-top: 50px;
+    font-size: 1em;
+    color: #aaa;
+    border-top: 3px solid #ff4500;
   }
   footer a {
-    color: #ff6600;
+    color: #ffd700;
     text-decoration: none;
     font-weight: bold;
+    transition: color 0.3s;
+  }
+  footer a:hover {
+    color: #ff8c00;
+  }
+
+  /* Scrollbar Customizado */
+  .products::-webkit-scrollbar {
+    height: 8px;
+  }
+  .products::-webkit-scrollbar-track {
+    background: #1e1e1e;
+  }
+  .products::-webkit-scrollbar-thumb {
+    background: #ff4500;
+    border-radius: 10px;
   }
 </style>
 </head>
 <body>
 
 <header>
+  <img src="https://i.imgur.com/d4nJvZB.png" alt="Logo XP Games">
   XP Games Store
-  <span>Consoles, Jogos e Acessórios – Entrega Grátis em Marabá</span>
+  <span>Consoles, Jogos e Acessórios – **Entrega Grátis em Marabá**</span>
 </header>
 
-<!-- Slider -->
 <div class="slider-container">
   <div class="slider" id="slider">
     <div class="slide">
-      <img src="https://i.imgur.com/2PvLf1J.png" alt="Promoção 1">
-      <div class="slide-text">Promoção Imperdível!</div>
+      <img src="https://i.imgur.com/2PvLf1J.png" alt="Banner Promoção 1: Fones Gamer">
+      <div class="slide-text">Super Promoção de Fones Gamer!</div>
     </div>
     <div class="slide">
-      <img src="https://i.imgur.com/fMiPb1h.png" alt="Promoção 2">
-      <div class="slide-text">Produtos Gamer com Preço Baixo!</div>
+      <img src="https://i.imgur.com/fMiPb1h.png" alt="Banner Promoção 2: Mouse e Teclado">
+      <div class="slide-text">Mouse e Teclado com Preço Imbatível!</div>
     </div>
     <div class="slide">
-      <img src="https://i.imgur.com/8R9u47l.png" alt="Promoção 3">
-      <div class="slide-text">Frete Grátis em Marabá!</div>
+      <img src="https://i.imgur.com/8R9u47l.png" alt="Banner Promoção 3: Joypads e Acessórios">
+      <div class="slide-text">Joypads e Acessórios Top!</div>
     </div>
   </div>
   <button class="prev" onclick="prevSlide()">❮</button>
   <button class="next" onclick="nextSlide()">❯</button>
 </div>
 
-<!-- Produtos -->
-<div class="products">
-  <!-- Produto 1 -->
-  <div class="product">
-    <img src="https://i.imgur.com/B8GmWfL.png" alt="Fone KZ EDG Pro">
-    <h3>Fone KZ EDG Pro</h3>
-    <p class="price">R$ 59,99</p>
-    <p>Fone intra-auricular com som potente e confortável para jogos e música.</p>
-    <a class="buy-btn" href="https://wa.me/5594991169104?text=Tenho%20interesse%20no%20produto%20Fone%20KZ%20EDG%20Pro" target="_blank">Tenho interesse</a>
-  </div>
-
-  <!-- Produto 2 -->
-  <div class="product">
-    <img src="https://i.imgur.com/Zm7g07H.png" alt="Filtro de Linha iClamper Transparente">
-    <h3>Filtro de Linha iClamper Transparente</h3>
-    <p class="price">R$ 109,99</p>
-    <p>Proteção contra sobrecarga para seus aparelhos com design transparente moderno.</p>
-    <a class="buy-btn" href="https://wa.me/5594991169104?text=Tenho%20interesse%20no%20produto%20Filtro%20de%20Linha%20iClamper%20Transparente" target="_blank">Tenho interesse</a>
-  </div>
-
-  <!-- Produto 3 -->
-  <div class="product">
-    <img src="https://i.imgur.com/XU6nMvD.png" alt="Teclado Gamer Fortrek Fearless 80 TKL">
-    <h3>Teclado Gamer Fortrek Fearless 80 TKL</h3>
-    <p class="price">R$ 119,99</p>
-    <p>Teclado mecânico compacto com ótimo desempenho para jogos e digitação.</p>
-    <a class="buy-btn" href="https://wa.me/5594991169104?text=Tenho%20interesse%20no%20produto%20Teclado%20Fortrek%20Fearless%2080%20TKL" target="_blank">Tenho interesse</a>
-  </div>
-
-  <!-- Produto 4 -->
-  <div class="product">
-    <img src="https://i.imgur.com/yoePqAj.png" alt="Teclado Gamer RGB LED Rainbow MTS">
-    <h3>Teclado Gamer RGB LED Rainbow MTS</h3>
-    <p class="price">R$ 65,99</p>
-    <p>Teclado com iluminação RGB, anti-ghosting e multimídia perfeito para gamers.</p>
-    <a class="buy-btn" href="https://wa.me/5594991169104?text=Tenho%20interesse%20no%20produto%20Teclado%20Gamer%20RGB%20LED%20Rainbow%20MTS" target="_blank">Tenho interesse</a>
-  </div>
-
-  <!-- Produto 5 -->
-  <div class="product">
-    <img src="https://i.imgur.com/k3fW2I5.png" alt="Mouse Gamer ZAROBO USB LED RGB MS-62">
-    <h3>Mouse Gamer ZAROBO USB LED RGB MS-62</h3>
-    <p class="price">R$ 34,99</p>
-    <p>Mouse gamer com iluminação LED RGB e resolução de 1200 DPI.</p>
-    <a class="buy-btn" href="https://wa.me/5594991169104?text=Tenho%20interesse%20no%20produto%20ZAROBO%20Mouse%20Gamer%20MS-62" target="_blank">Tenho interesse</a>
-  </div>
-
-  <!-- Produto 6 -->
-  <div class="product">
-    <img src="https://i.imgur.com/LtGaxmN.png" alt="Joypad USB Gamepad PC">
-    <h3>Joypad com fio USB 2.0</h3>
-    <p class="price">R$ 34,99</p>
-    <p>Controle gamepad USB compatível com PC e notebook para jogos confortáveis.</p>
-    <a class="buy-btn" href="https://wa.me/5594991169104?text=Tenho%20interesse%20no%20produto%20Joypad%20USB%202.0" target="_blank">Tenho interesse</a>
-  </div>
-</div>
-
-<footer>
-  © 2026 XP Games Store - Todos os direitos reservados <br>
-  WhatsApp: <a href="https://wa.me/5594991169104" target="_blank">Clique aqui para falar</a>
-</footer>
-
-<script>
-let slideIndex = 0;
-const slides = document.getElementById('slider');
-function showSlide(index) {
-  slides.style.transform = `translateX(${-index * 100}%)`;
-}
-function nextSlide() {
-  slideIndex = (slideIndex + 1) % slides.children.length;
-  showSlide(slideIndex);
-}
-function prevSlide() {
-  slideIndex = (slideIndex - 1 + slides.children.length) % slides.children.length;
-  showSlide(slideIndex);
-}
-setInterval(nextSlide, 5000);
-</script>
-
-</body>
-</html>
+<div class="products-section">
+  <h2>🎮 Produtos em Destaque 🖱️</h2>
+  <div class="products">
+    <div class="product">
+      <img src="https://i.imgur.com/39QY6v7.png" alt="Fone KZ EDG Pro (Imagem Real)">
+      <h3>Fone KZ EDG Pro</h3>
+      <p class="price">R$ 59,99</p>
+      <p>Fone intra-auricular com som potente e confortável para jogos e música. Excelente custo-benefício!</p>
+      <a class="buy-btn" href="
