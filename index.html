@@ -4,131 +4,199 @@ index.html
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Loja Online Top</title>
+    <title>XP Games Store - Ofertas Imperdíveis</title>
     <style>
+        /* RESET */
+        * { margin:0; padding:0; box-sizing:border-box; font-family: Arial, sans-serif; }
+
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f8f8f8;
-            margin: 0;
-            padding: 0;
+            background: #f4f4f4;
         }
-        .header {
-            background: #000;
+
+        /* HEADER */
+        header {
+            background: #1a1a1a;
             color: #fff;
-            padding: 20px;
+            padding: 25px 20px;
             text-align: center;
-            font-size: 2rem;
+            font-size: 2.2rem;
+            font-weight: bold;
         }
-        .products {
+
+        /* BANNER TOP */
+        .banner {
+            background: url('https://images.unsplash.com/photo-1612197507281-43f67e4b6c1d?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
+            height: 300px;
             display: flex;
-            flex-wrap: wrap;
+            align-items: center;
             justify-content: center;
-            padding: 20px;
-            gap: 20px;
+            color: #fff;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+            font-size: 2.5rem;
+            font-weight: bold;
         }
-        .product {
+
+        /* CONTAINER PRODUTOS */
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        /* CARTÃO PRODUTO */
+        .product-card {
             background: #fff;
-            border-radius: 10px;
-            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
-            width: 300px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: contain;
+            background: #f0f0f0;
+        }
+
+        .product-info {
             padding: 15px;
             text-align: center;
         }
-        .product img {
-            width: 100%;
-            border-radius: 10px;
-        }
-        .product h3 {
-            margin: 10px 0 5px;
+
+        .product-info h3 {
             font-size: 1.2rem;
+            margin-bottom: 8px;
+            color: #1a1a1a;
         }
-        .product p {
-            margin: 5px 0;
+
+        .product-info p {
             font-size: 1.1rem;
-            color: #333;
+            font-weight: bold;
+            color: #e63946;
+            margin-bottom: 12px;
         }
+
         .btn-buy {
-            background: #25D366;
-            color: white;
+            background: linear-gradient(90deg,#25D366,#128C7E);
+            color: #fff;
             padding: 12px 20px;
+            border-radius: 8px;
             text-decoration: none;
-            border-radius: 5px;
-            font-size: 1rem;
+            font-weight: bold;
             display: inline-block;
-            margin-top: 10px;
+            transition: all 0.3s;
         }
+
         .btn-buy:hover {
-            background: #1ebe57;
+            transform: scale(1.05);
+            background: linear-gradient(90deg,#128C7E,#25D366);
         }
+
+        /* FOOTER */
+        footer {
+            background: #1a1a1a;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+        }
+
+        footer a {
+            color: #25D366;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        @media (max-width:768px){
+            .banner {
+                font-size: 1.8rem;
+                height: 200px;
+            }
+            .product-card img {
+                height: 200px;
+            }
+        }
+
     </style>
 </head>
 <body>
 
-    <div class="header">🔥 Ofertas Imperdíveis 🔥</div>
+    <header>XP Games Store</header>
 
-    <div class="products">
+    <div class="banner">🔥 Ofertas Imperdíveis em Jogos e Acessórios 🔥</div>
 
-        <!-- PRODUTO 1 -->
-        <div class="product">
-            <img src="https://images-na.ssl-images-amazon.com/images/I/71czRpVcUPL.jpg" alt="Fone KZ EDG Pro">
-            <h3>Fone KZ EDG Pro</h3>
-            <p>R$59,99</p>
-            <a class="btn-buy" href="https://wa.me/5594991169104?text=Quero+comprar+o+Fone+KZ+EDG+Pro" target="_blank">
-                Comprar no WhatsApp
-            </a>
+    <div class="container">
+        <div class="products">
+
+            <!-- PRODUTO 1 -->
+            <div class="product-card">
+                <img src="https://images-na.ssl-images-amazon.com/images/I/71czRpVcUPL.jpg" alt="Fone KZ EDG Pro">
+                <div class="product-info">
+                    <h3>Fone KZ EDG Pro</h3>
+                    <p>R$59,99</p>
+                    <a class="btn-buy" href="https://wa.me/5594991169104?text=Quero+comprar+o+Fone+KZ+EDG+Pro" target="_blank">Comprar no WhatsApp</a>
+                </div>
+            </div>
+
+            <!-- PRODUTO 2 -->
+            <div class="product-card">
+                <img src="https://m.media-amazon.com/images/I/41oArY9R0yL._AC_UF894%2C1000_QL80_.jpg" alt="Filtro de Linha iClamper">
+                <div class="product-info">
+                    <h3>Filtro de Linha iClamper</h3>
+                    <p>R$109,99</p>
+                    <a class="btn-buy" href="https://wa.me/5594991169104?text=Quero+comprar+o+Filtro+de+Linha+iClamper" target="_blank">Comprar no WhatsApp</a>
+                </div>
+            </div>
+
+            <!-- PRODUTO 3 -->
+            <div class="product-card">
+                <img src="https://m.media-amazon.com/images/I/61ehnAVAwVL.jpg" alt="Joypad USB 2.0 ZAROBO">
+                <div class="product-info">
+                    <h3>Joypad com Fio USB 2.0 ZAROBO</h3>
+                    <p>R$34,99</p>
+                    <a class="btn-buy" href="https://wa.me/5594991169104?text=Quero+comprar+o+Joypad+com+Fio+USB+2.0+ZAROBO" target="_blank">Comprar no WhatsApp</a>
+                </div>
+            </div>
+
+            <!-- PRODUTO 4 -->
+            <div class="product-card">
+                <img src="https://m.media-amazon.com/images/I/51ZYz1Dy8UL._AC_UF894%2C1000_QL80_.jpg" alt="Mouse Gamer USB LED RGB">
+                <div class="product-info">
+                    <h3>Mouse Gamer USB LED RGB</h3>
+                    <p>R$34,99</p>
+                    <a class="btn-buy" href="https://wa.me/5594991169104?text=Quero+comprar+o+Mouse+Gamer+USB+LED+RGB" target="_blank">Comprar no WhatsApp</a>
+                </div>
+            </div>
+
+            <!-- PRODUTO 5 -->
+            <div class="product-card">
+                <img src="https://m.media-amazon.com/images/I/71jcIjOtk-L._AC_UF894%2C1000_QL80_.jpg" alt="Teclado Gamer RGB LED Rainbow MT">
+                <div class="product-info">
+                    <h3>Teclado Gamer RGB LED Rainbow MT</h3>
+                    <p>R$59,99</p>
+                    <a class="btn-buy" href="https://wa.me/5594991169104?text=Quero+comprar+o+Teclado+Gamer+RGB+LED+Rainbow+MT" target="_blank">Comprar no WhatsApp</a>
+                </div>
+            </div>
+
         </div>
-
-        <!-- PRODUTO 2 -->
-        <div class="product">
-            <img src="https://m.media-amazon.com/images/I/41oArY9R0yL._AC_UF894%2C1000_QL80_.jpg" alt="Filtro de Linha iClamper">
-            <h3>Filtro de Linha iClamper</h3>
-            <p>R$109,99</p>
-            <a class="btn-buy" href="https://wa.me/5594991169104?text=Quero+comprar+o+Filtro+de+Linha+iClamper" target="_blank">
-                Comprar no WhatsApp
-            </a>
-        </div>
-
-        <!-- PRODUTO 3 -->
-        <div class="product">
-            <img src="https://m.media-amazon.com/images/I/61ehnAVAwVL.jpg" alt="Joypad USB 2.0 ZAROBO">
-            <h3>Joypad com Fio USB 2.0 ZAROBO</h3>
-            <p>R$34,99</p>
-            <a class="btn-buy" href="https://wa.me/5594991169104?text=Quero+comprar+o+Joypad+com+Fio+USB+2.0+ZAROBO" target="_blank">
-                Comprar no WhatsApp
-            </a>
-        </div>
-
-        <!-- PRODUTO 4 -->
-        <div class="product">
-            <img src="https://m.media-amazon.com/images/I/51ZYz1Dy8UL._AC_UF894%2C1000_QL80_.jpg" alt="Mouse Gamer USB LED RGB">
-            <h3>Mouse Gamer USB LED RGB</h3>
-            <p>R$34,99</p>
-            <a class="btn-buy" href="https://wa.me/5594991169104?text=Quero+comprar+o+Mouse+Gamer+USB+LED+RGB" target="_blank">
-                Comprar no WhatsApp
-            </a>
-        </div>
-
-        <!-- PRODUTO 5 -->
-        <div class="product">
-            <img src="https://m.media-amazon.com/images/I/71jcIjOtk-L._AC_UF894%2C1000_QL80_.jpg" alt="Teclado Gamer RGB LED Rainbow MT">
-            <h3>Teclado Gamer RGB LED Rainbow MT</h3>
-            <p>R$59,99</p>
-            <a class="btn-buy" href="https://wa.me/5594991169104?text=Quero+comprar+o+Teclado+Gamer+RGB+LED+Rainbow+MT" target="_blank">
-                Comprar no WhatsApp
-            </a>
-        </div>
-
-        <!-- PRODUTO 6 - COM IMAGEM REAL -->
-        <div class="product">
-            <img src="https://m.media-amazon.com/images/I/61X6h4ZTsrL.jpg" alt="Teclado Gamer Fortrek Fearless 80 TKL">
-            <h3>Teclado Gamer Fortrek Fearless 80 TKL</h3>
-            <p>R$119,99</p>
-            <a class="btn-buy" href="https://wa.me/5594991169104?text=Quero+comprar+o+Teclado+Gamer+Fortrek+Fearless+80+TKL" target="_blank">
-                Comprar no WhatsApp
-            </a>
-        </div>
-
     </div>
+
+    <footer>
+        Contato: <a href="https://wa.me/5594991169104" target="_blank">WhatsApp</a> | XP Games Store
+    </footer>
 
 </body>
 </html>
