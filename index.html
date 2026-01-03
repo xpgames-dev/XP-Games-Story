@@ -5,234 +5,157 @@ index.html
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>XP Games Store</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    /* ===========================
-       RESET E ESTILOS GERAIS
-    ============================ */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    /* Reset e fontes */
+    * {margin: 0; padding: 0; box-sizing: border-box; font-family: 'Roboto', sans-serif;}
+    body {background: #1c1c1c; color: #fff;}
+    a {text-decoration: none; color: inherit;}
 
-    body {
-      font-family: 'Arial', sans-serif;
-      background-color: #121212;
-      color: #fff;
-      overflow-x: hidden;
-    }
-
-    a { text-decoration: none; color: inherit; }
-
-    /* ===========================
-       HEADER
-    ============================ */
+    /* Cabeçalho */
     header {
-      background: linear-gradient(90deg, #ff6600, #ff9933);
-      padding: 30px 20px;
+      background: #ff6600;
+      padding: 20px;
       text-align: center;
-      position: relative;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      animation: slideDown 1s ease;
+    }
+    header h1 {font-size: 2rem; color: #fff;}
+
+    @keyframes slideDown {
+      from {transform: translateY(-100%);}
+      to {transform: translateY(0);}
     }
 
-    header h1 {
-      font-size: 2.5rem;
-      margin-bottom: 10px;
-      text-shadow: 2px 2px 6px #000;
+    /* Introdução */
+    .intro {
+      text-align: center;
+      padding: 20px;
+      animation: fadeIn 1.5s ease;
     }
+    @keyframes fadeIn {from {opacity:0;} to {opacity:1;}}
 
-    header p {
-      font-size: 1.2rem;
-      color: #fff;
-    }
+    .intro p {margin: 10px 0; font-size: 1.1rem;}
 
-    /* ===========================
-       SLIDE DE PRODUTOS
-    ============================ */
-    .slider {
+    /* Produtos */
+    .products {
       display: flex;
-      overflow-x: auto;
+      flex-wrap: wrap;
+      justify-content: center;
       gap: 20px;
       padding: 20px;
-      scroll-behavior: smooth;
     }
-
-    .slider::-webkit-scrollbar { display: none; } /* esconde a barra de rolagem */
-
     .product {
-      min-width: 250px;
-      background-color: #1e1e1e;
-      border-radius: 15px;
+      background: #292929;
+      border-radius: 12px;
       padding: 15px;
+      width: 260px;
       text-align: center;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.6);
-      transition: transform 0.3s, box-shadow 0.3s;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      animation: fadeInUp 1s ease;
     }
-
     .product:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(255,102,0,0.7);
+      transform: translateY(-10px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.5);
     }
-
-    .product img {
-      width: 100%;
-      border-radius: 10px;
-      transition: transform 0.3s;
-    }
-
-    .product img:hover {
-      transform: scale(1.05);
-    }
-
-    .product h3 {
-      margin: 10px 0 5px;
-      font-size: 1.2rem;
-      color: #ff9933;
-    }
-
-    .product .price {
-      font-weight: bold;
-      color: #ff6600;
-      margin-bottom: 10px;
-    }
-
-    .product p {
-      font-size: 0.9rem;
-      margin-bottom: 10px;
-    }
-
+    .product img {width: 100%; border-radius: 8px;}
+    .product h3 {margin: 10px 0; color: #ff6600;}
+    .product p.price {font-weight: bold; margin: 5px 0;}
+    .product p {font-size: 0.9rem; margin: 5px 0 15px;}
     .buy-btn {
       display: inline-block;
-      padding: 10px 15px;
-      background-color: #ff6600;
+      background: #ff6600;
       color: #fff;
-      font-weight: bold;
-      border-radius: 5px;
-      transition: background-color 0.3s;
+      padding: 10px 15px;
+      border-radius: 8px;
+      transition: background 0.3s ease;
+    }
+    .buy-btn:hover {background: #ff8800;}
+
+    @keyframes fadeInUp {
+      from {opacity:0; transform: translateY(20px);}
+      to {opacity:1; transform: translateY(0);}
     }
 
-    .buy-btn:hover {
-      background-color: #e05500;
-    }
-
-    /* ===========================
-       SEÇÃO DE INFORMAÇÕES
-    ============================ */
-    .info {
-      padding: 20px;
-      text-align: center;
-      background-color: #1a1a1a;
-      margin: 20px;
-      border-radius: 10px;
-    }
-
-    .info p {
-      margin: 10px 0;
-    }
-
-    .info strong {
-      color: #ff6600;
-    }
-
-    /* ===========================
-       RODAPÉ
-    ============================ */
+    /* Footer */
     footer {
-      background-color: #1f1f1f;
+      background: #111;
+      color: #ccc;
       text-align: center;
-      padding: 20px;
+      padding: 15px;
+      margin-top: 30px;
       font-size: 0.9rem;
     }
-
-    footer a { color: #ff6600; font-weight: bold; }
-
-    /* ===========================
-       RESPONSIVO
-    ============================ */
-    @media (max-width: 768px) {
-      .slider {
-        padding: 10px;
-      }
-
-      header h1 {
-        font-size: 2rem;
-      }
-    }
-
+    footer a {color: #ff6600;}
   </style>
 </head>
 <body>
 
-  <!-- ===========================
-       HEADER COM NOME DA LOJA
-  ============================ -->
+  <!-- Cabeçalho -->
   <header>
     <h1>XP Games Store</h1>
-    <p>Loja gamer online – Atendemos via WhatsApp</p>
   </header>
 
-  <!-- ===========================
-       INFORMAÇÕES DA LOJA
-  ============================ -->
-  <div class="info">
-    <p><strong>🎮 Produtos Gamer</strong></p>
-    <p>Consoles, jogos, acessórios e periféricos de alta qualidade.</p>
+  <!-- Introdução -->
+  <div class="intro">
+    <p>🎮 Produtos Gamer: Consoles, jogos, acessórios e periféricos de alta qualidade.</p>
     <p>📍 Local: Marabá - PA | 🚚 Entrega grátis (consulte condições)</p>
     <p>📲 Atendimento rápido via WhatsApp</p>
   </div>
 
-  <!-- ===========================
-       CARROSSEL DE PRODUTOS
-  ============================ -->
-  <div class="slider">
+  <!-- Produtos -->
+  <div class="products">
 
-    <!-- PRODUTO 1 -->
+    <!-- Produto 1 -->
     <div class="product">
-      <img src="https://i.imgur.com/0W1j1Ix.jpg" alt="Fone KZ EDG Pro" />
+      <img src="https://ae01.alicdn.com/kf/Hfa842fb74a4c46c7b5f11db18c54f2fb7/Fone-KZ-EDG-Pro.jpg" alt="Fone KZ EDG Pro">
       <h3>Fone KZ EDG Pro</h3>
       <p class="price">R$ 59,99</p>
       <p>Fone intra-auricular com som potente e confortável para jogos e música.</p>
       <a class="buy-btn" href="https://wa.me/5594991169104?text=Quero%20comprar%20o%20Fone%20KZ%20EDG%20Pro" target="_blank">Comprar pelo WhatsApp</a>
     </div>
 
-    <!-- PRODUTO 2 -->
+    <!-- Produto 2 -->
     <div class="product">
-      <img src="https://i.imgur.com/8C4B8po.jpg" alt="Filtro de Linha iClamper Transparente" />
+      <img src="https://http2.mlstatic.com/D_NQ_NP_711136-MLB49788317003_042022-O.jpg" alt="Filtro de Linha iClamper Transparente">
       <h3>Filtro de Linha iClamper Transparente</h3>
       <p class="price">R$ 109,99</p>
       <p>Proteção contra sobrecarga para seus aparelhos com design transparente moderno.</p>
       <a class="buy-btn" href="https://wa.me/5594991169104?text=Quero%20comprar%20o%20Filtro%20de%20Linha%20iClamper%20Transparente" target="_blank">Comprar pelo WhatsApp</a>
     </div>
 
-    <!-- PRODUTO 3 -->
+    <!-- Produto 3 -->
     <div class="product">
-      <img src="https://i.imgur.com/Jxq0nZd.jpg" alt="Teclado Gamer Fortrek Fearless 80 TKL" />
+      <img src="https://m.media-amazon.com/images/I/61gEJjLWTCL._AC_SL1500_.jpg" alt="Teclado Gamer Fortrek Fearless 80 TKL">
       <h3>Teclado Gamer Fortrek Fearless 80 TKL Preto</h3>
       <p class="price">R$ 119,99</p>
       <p>Teclado mecânico 70% compacto com ótimo desempenho para jogos e digitação.</p>
       <a class="buy-btn" href="https://wa.me/5594991169104?text=Quero%20comprar%20o%20Teclado%20Fortrek%20Fearless%2080%20TKL" target="_blank">Comprar pelo WhatsApp</a>
     </div>
 
-    <!-- PRODUTO 4 -->
+    <!-- Produto 4 -->
     <div class="product">
-      <img src="https://i.imgur.com/1GfL9W3.jpg" alt="Teclado Gamer RGB LED Rainbow MTS" />
+      <img src="https://cdn.awsli.com.br/600x450/246/246688/produto/101313103/2d35c5f2c1.jpg" alt="Teclado Gamer RGB LED Rainbow MTS">
       <h3>Teclado Gamer RGB LED Rainbow MTS</h3>
       <p class="price">R$ 65,99</p>
       <p>Teclado com iluminação RGB, anti-ghosting e multimídia perfeito para gamers.</p>
       <a class="buy-btn" href="https://wa.me/5594991169104?text=Quero%20comprar%20o%20Teclado%20Gamer%20RGB%20LED%20Rainbow%20MTS" target="_blank">Comprar pelo WhatsApp</a>
     </div>
 
-    <!-- PRODUTO 5 -->
+    <!-- Produto 5 -->
     <div class="product">
-      <img src="https://i.imgur.com/8Pn3pQF.jpg" alt="ZAROBO Mouse Gamer USB LED RGB MS-62" />
+      <img src="https://http2.mlstatic.com/D_NQ_NP_665773-MLB50088231542_052022-O.jpg" alt="ZAROBO Mouse Gamer USB LED RGB MS-62">
       <h3>ZAROBO Mouse Gamer USB LED RGB 1200DPI</h3>
       <p class="price">R$ 34,99</p>
       <p>Mouse gamer com iluminação LED RGB e resolução de 1200 DPI.</p>
       <a class="buy-btn" href="https://wa.me/5594991169104?text=Quero%20comprar%20o%20ZAROBO%20Mouse%20Gamer%20MS-62" target="_blank">Comprar pelo WhatsApp</a>
     </div>
 
-    <!-- PRODUTO 6 -->
+    <!-- Produto 6 -->
     <div class="product">
-      <img src="https://i.imgur.com/fkq9ClM.jpg" alt="Joypad USB Gamepad PC" />
+      <img src="https://cdn.awsli.com.br/600x450/246/246688/produto/101313103/2d35c5f2c1.jpg" alt="Joypad USB Gamepad PC">
       <h3>Joypad com fio USB 2.0</h3>
       <p class="price">R$ 34,99</p>
       <p>Controle gamepad USB compatível com PC e notebook para jogos confortáveis.</p>
@@ -241,12 +164,10 @@ index.html
 
   </div>
 
-  <!-- ===========================
-       RODAPÉ
-  ============================ -->
+  <!-- Footer -->
   <footer>
-    <p>© 2026 XP Games Store - Todos os direitos reservados</p>
-    <p>📞 WhatsApp: <a href="https://wa.me/5594991169104" target="_blank">Clique aqui para falar</a></p>
+    © 2026 XP Games Store - Todos os direitos reservados<br>
+    WhatsApp: <a href="https://wa.me/5594991169104" target="_blank">Clique aqui para falar</a>
   </footer>
 
 </body>
