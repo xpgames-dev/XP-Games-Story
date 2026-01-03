@@ -2,186 +2,134 @@ index.html
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>XP Games Store</title>
-  <style>
-    /* RESET BASICO */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
-    }
-
-    body {
-      background-color: #f5f5f5;
-      color: #333;
-    }
-
-    header {
-      background-color: #1e1e1e;
-      color: white;
-      padding: 15px 20px;
-      text-align: center;
-      font-size: 1.8rem;
-      font-weight: bold;
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 30px auto;
-      padding: 0 20px;
-    }
-
-    .products {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
-
-    .product-card {
-      background-color: white;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      overflow: hidden;
-      transition: transform 0.2s;
-    }
-
-    .product-card:hover {
-      transform: scale(1.05);
-    }
-
-    .product-card img {
-      width: 100%;
-      height: 250px;
-      object-fit: contain;
-      background-color: #f0f0f0;
-    }
-
-    .product-info {
-      padding: 15px;
-      text-align: center;
-    }
-
-    .product-info h3 {
-      font-size: 1.2rem;
-      margin-bottom: 10px;
-    }
-
-    .product-info p {
-      font-size: 1.1rem;
-      color: #e63946;
-      font-weight: bold;
-      margin-bottom: 15px;
-    }
-
-    .buy-btn {
-      display: inline-block;
-      background-color: #f77f00;
-      color: white;
-      padding: 10px 20px;
-      border-radius: 5px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: background-color 0.2s;
-    }
-
-    .buy-btn:hover {
-      background-color: #d65f00;
-    }
-
-    footer {
-      background-color: #1e1e1e;
-      color: white;
-      text-align: center;
-      padding: 20px;
-      margin-top: 50px;
-    }
-
-    @media (max-width: 768px) {
-      .product-card img {
-        height: 200px;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loja Online Top</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            background: #000;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            font-size: 2rem;
+        }
+        .products {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+            gap: 20px;
+        }
+        .product {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+            width: 300px;
+            padding: 15px;
+            text-align: center;
+        }
+        .product img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        .product h3 {
+            margin: 10px 0 5px;
+            font-size: 1.2rem;
+        }
+        .product p {
+            margin: 5px 0;
+            font-size: 1.1rem;
+            color: #333;
+        }
+        .btn-buy {
+            background: #25D366;
+            color: white;
+            padding: 12px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        .btn-buy:hover {
+            background: #1ebe57;
+        }
+    </style>
 </head>
 <body>
 
-  <header>
-    XP Games Store
-  </header>
+    <div class="header">🔥 Ofertas Imperdíveis 🔥</div>
 
-  <div class="container">
     <div class="products">
-      
-      <!-- Produto 1 -->
-      <div class="product-card">
-        <img src="https://via.placeholder.com/300x250?text=Fone+KZ+EDG+Pro" alt="Fone KZ EDG Pro">
-        <div class="product-info">
-          <h3>Fone KZ EDG Pro</h3>
-          <p>R$ 59,99</p>
-          <a class="buy-btn" href="https://wa.me/5594991169104?text=Tenho%20interesse%20no%20Fone%20KZ%20EDG%20Pro" target="_blank">Comprar</a>
-        </div>
-      </div>
 
-      <!-- Produto 2 -->
-      <div class="product-card">
-        <img src="https://via.placeholder.com/300x250?text=Filtro+de+Linha+iClamper" alt="Filtro de Linha iClamper">
-        <div class="product-info">
-          <h3>Filtro de Linha iClamper</h3>
-          <p>R$ 109,99</p>
-          <a class="buy-btn" href="https://wa.me/5594991169104?text=Tenho%20interesse%20no%20Filtro%20de%20Linha%20iClamper" target="_blank">Comprar</a>
+        <!-- PRODUTO 1 -->
+        <div class="product">
+            <img src="https://images-na.ssl-images-amazon.com/images/I/71czRpVcUPL.jpg" alt="Fone KZ EDG Pro">
+            <h3>Fone KZ EDG Pro</h3>
+            <p>R$59,99</p>
+            <a class="btn-buy" href="https://wa.me/5594991169104?text=Quero+comprar+o+Fone+KZ+EDG+Pro" target="_blank">
+                Comprar no WhatsApp
+            </a>
         </div>
-      </div>
 
-      <!-- Produto 3 -->
-      <div class="product-card">
-        <img src="https://via.placeholder.com/300x250?text=Joypad+USB+ZAROBO" alt="Joypad USB ZAROBO">
-        <div class="product-info">
-          <h3>Joypad com fio USB 2.0 ZAROBO</h3>
-          <p>R$ 34,99</p>
-          <a class="buy-btn" href="https://wa.me/5594991169104?text=Tenho%20interesse%20no%20Joypad%20com%20fio%20USB%202.0%20ZAROBO" target="_blank">Comprar</a>
+        <!-- PRODUTO 2 -->
+        <div class="product">
+            <img src="https://m.media-amazon.com/images/I/41oArY9R0yL._AC_UF894%2C1000_QL80_.jpg" alt="Filtro de Linha iClamper">
+            <h3>Filtro de Linha iClamper</h3>
+            <p>R$109,99</p>
+            <a class="btn-buy" href="https://wa.me/5594991169104?text=Quero+comprar+o+Filtro+de+Linha+iClamper" target="_blank">
+                Comprar no WhatsApp
+            </a>
         </div>
-      </div>
 
-      <!-- Produto 4 -->
-      <div class="product-card">
-        <img src="https://via.placeholder.com/300x250?text=Mouse+Gamer+USB+LED+RGB" alt="Mouse Gamer USB LED RGB">
-        <div class="product-info">
-          <h3>Mouse Gamer USB LED RGB</h3>
-          <p>R$ 34,99</p>
-          <a class="buy-btn" href="https://wa.me/5594991169104?text=Tenho%20interesse%20no%20Mouse%20Gamer%20USB%20LED%20RGB" target="_blank">Comprar</a>
+        <!-- PRODUTO 3 -->
+        <div class="product">
+            <img src="https://m.media-amazon.com/images/I/61ehnAVAwVL.jpg" alt="Joypad USB 2.0 ZAROBO">
+            <h3>Joypad com Fio USB 2.0 ZAROBO</h3>
+            <p>R$34,99</p>
+            <a class="btn-buy" href="https://wa.me/5594991169104?text=Quero+comprar+o+Joypad+com+Fio+USB+2.0+ZAROBO" target="_blank">
+                Comprar no WhatsApp
+            </a>
         </div>
-      </div>
 
-      <!-- Produto 5 -->
-      <div class="product-card">
-        <img src="https://via.placeholder.com/300x250?text=Teclado+Gamer+RGB+LED+Rainbow+MT" alt="Teclado Gamer RGB LED Rainbow MT">
-        <div class="product-info">
-          <h3>Teclado Gamer RGB LED Rainbow MT</h3>
-          <p>R$ 59,99</p>
-          <a class="buy-btn" href="https://wa.me/5594991169104?text=Tenho%20interesse%20no%20Teclado%20Gamer%20RGB%20LED%20Rainbow%20MT" target="_blank">Comprar</a>
+        <!-- PRODUTO 4 -->
+        <div class="product">
+            <img src="https://m.media-amazon.com/images/I/51ZYz1Dy8UL._AC_UF894%2C1000_QL80_.jpg" alt="Mouse Gamer USB LED RGB">
+            <h3>Mouse Gamer USB LED RGB</h3>
+            <p>R$34,99</p>
+            <a class="btn-buy" href="https://wa.me/5594991169104?text=Quero+comprar+o+Mouse+Gamer+USB+LED+RGB" target="_blank">
+                Comprar no WhatsApp
+            </a>
         </div>
-      </div>
 
-      <!-- Produto 6 -->
-      <div class="product-card">
-        <img src="https://via.placeholder.com/300x250?text=Teclado+Gamer+Fortrek+Fearless+TKL+Preto" alt="Teclado Gamer Fortrek Fearless TKL Preto">
-        <div class="product-info">
-          <h3>Teclado Gamer Fortrek Fearless TKL Preto</h3>
-          <p>R$ 119,99</p>
-          <a class="buy-btn" href="https://wa.me/5594991169104?text=Tenho%20interesse%20no%20Teclado%20Gamer%20Fortrek%20Fearless%20TKL%20Preto" target="_blank">Comprar</a>
+        <!-- PRODUTO 5 -->
+        <div class="product">
+            <img src="https://m.media-amazon.com/images/I/71jcIjOtk-L._AC_UF894%2C1000_QL80_.jpg" alt="Teclado Gamer RGB LED Rainbow MT">
+            <h3>Teclado Gamer RGB LED Rainbow MT</h3>
+            <p>R$59,99</p>
+            <a class="btn-buy" href="https://wa.me/5594991169104?text=Quero+comprar+o+Teclado+Gamer+RGB+LED+Rainbow+MT" target="_blank">
+                Comprar no WhatsApp
+            </a>
         </div>
-      </div>
+
+        <!-- PRODUTO 6 -->
+        <div class="product">
+            <img src="https://cdn.fortrek.com.br/cdn-images/catalogo/82998-fearless80tkl-rgb-preto.png" alt="Teclado Gamer Fortrek Fearless 80 TKL">
+            <h3>Teclado Gamer Fortrek Fearless 80 TKL</h3>
+            <p>R$119,99</p>
+            <a class="btn-buy" href="https://wa.me/5594991169104?text=Quero+comprar+o+Teclado+Gamer+Fortrek+Fearless+80+TKL" target="_blank">
+                Comprar no WhatsApp
+            </a>
+        </div>
 
     </div>
-  </div>
-
-  <footer>
-    Contato: <a href="https://wa.me/5594991169104" style="color:#f77f00;text-decoration:none;">WhatsApp</a> | XP Games Store
-  </footer>
 
 </body>
 </html>
-
+      
