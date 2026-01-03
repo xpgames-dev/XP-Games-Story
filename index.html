@@ -1,5 +1,5 @@
 index.html
-      <!DOCTYPE html>
+        <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
@@ -244,9 +244,76 @@ index.html
 <div class="products-section">
   <h2>🎮 Produtos em Destaque 🖱️</h2>
   <div class="products">
+    
     <div class="product">
       <img src="https://i.imgur.com/39QY6v7.png" alt="Fone KZ EDG Pro (Imagem Real)">
       <h3>Fone KZ EDG Pro</h3>
       <p class="price">R$ 59,99</p>
       <p>Fone intra-auricular com som potente e confortável para jogos e música. Excelente custo-benefício!</p>
-      <a class="buy-btn" href="
+      <a class="buy-btn" href="#">Comprar Agora</a>
+    </div>
+
+    <div class="product">
+      <img src="https://i.imgur.com/39QY6v7.png" alt="Controle Pro PS4/PC">
+      <h3>Controle Sem Fio Pro</h3>
+      <p class="price">R$ 189,90</p>
+      <p>Controle ergonômico com bateria de longa duração, compatível com PS4 e PC. Jogue com precisão!</p>
+      <a class="buy-btn" href="#">Comprar Agora</a>
+    </div>
+
+    <div class="product">
+      <img src="https://i.imgur.com/39QY6v7.png" alt="Headset Gamer RGB">
+      <h3>Headset Gamer RGB</h3>
+      <p class="price">R$ 99,99</p>
+      <p>Headset com iluminação RGB, microfone ajustável e som imersivo 7.1. Ideal para comunicação!</p>
+      <a class="buy-btn" href="#">Comprar Agora</a>
+    </div>
+
+    <div class="product">
+      <img src="https://i.imgur.com/39QY6v7.png" alt="Mousepad Grande Speed">
+      <h3>Mousepad Speed XL</h3>
+      <p class="price">R$ 39,99</p>
+      <p>Mousepad de 80x30cm, superfície lisa para velocidade e base antiderrapante. Maximize sua mira!</p>
+      <a class="buy-btn" href="#">Comprar Agora</a>
+    </div>
+    
+  </div>
+</div>
+
+<footer>
+  XP Games Store &copy; 2026. Todos os direitos reservados. | <a href="#">Política de Privacidade</a>
+</footer>
+
+<script>
+  let slideIndex = 0;
+  const slider = document.getElementById('slider');
+  const slides = document.querySelectorAll('.slide');
+  const totalSlides = slides.length;
+
+  function updateSlider() {
+    // Calcula o deslocamento horizontal para mostrar o slide correto
+    slider.style.transform = `translateX(${-slideIndex * 100}%)`;
+  }
+
+  function nextSlide() {
+    // Avança o slide, voltando ao primeiro (0) se for o último
+    slideIndex = (slideIndex + 1) % totalSlides;
+    updateSlider();
+  }
+
+  function prevSlide() {
+    // Volta o slide, indo para o último se for o primeiro
+    slideIndex = (slideIndex - 1 + totalSlides) % totalSlides;
+    updateSlider();
+  }
+
+  // Define um timer para o slider avançar automaticamente a cada 5 segundos
+  // setInterval(nextSlide, 5000); 
+
+  // Inicializa o slider na primeira imagem
+  updateSlider();
+</script>
+
+</body>
+</html>
+
